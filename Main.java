@@ -16,7 +16,8 @@ public class Main {
             System.out.println("3. Search Student");
             System.out.println("4. Update Student");
             System.out.println("5. Delete Student");
-            System.out.println("6. Exit");
+            System.out.println("6. ChatBot");
+            System.out.println("7. Exit");
 
             System.out.print("Choose option: ");
             int choice = sc.nextInt();
@@ -85,13 +86,20 @@ public class Main {
                     System.out.print("Enter ID: ");
                     id = sc.nextInt();
 
-                    if (manager.deleteStudent(id))
+                    if (manager.deleteStudent(id)) {
+                        manager.saveToFile();
                         System.out.println("Deleted Successfully");
-                    else
+                    } else {
                         System.out.println("Student Not Found");
+                    }
                     break;
 
                 case 6:
+                    ChatBot bot = new ChatBot();
+                    bot.startChat(manager);
+                    break;    
+
+                case 7:
                     System.out.println("Thank You!");
                     System.exit(0);
 

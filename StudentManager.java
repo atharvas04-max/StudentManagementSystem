@@ -103,4 +103,7 @@ public class StudentManager {
             System.out.println("No previous data found.");
         }
     }
+    public int getStudentCount() {
+        return students.size();
+    }
 }
